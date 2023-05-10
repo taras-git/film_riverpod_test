@@ -1,4 +1,4 @@
-import 'package:film_riverpod_test/model/search.dart';
+import 'package:film_riverpod_test/model/films/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

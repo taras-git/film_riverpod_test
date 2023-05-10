@@ -1,6 +1,5 @@
+import 'package:film_riverpod_test/model/films/search.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'search.dart';
 
 part 'film_root.freezed.dart';
 part 'film_root.g.dart';

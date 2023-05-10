@@ -21,7 +21,7 @@ FilmRoot _$FilmRootFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FilmRoot {
   @JsonKey(name: 'Search')
-  List<Search>? get search => throw _privateConstructorUsedError;
+  List<Film>? get search => throw _privateConstructorUsedError;
   String? get totalResults => throw _privateConstructorUsedError;
   @JsonKey(name: 'Response')
   String? get response => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $FilmRootCopyWith<$Res> {
       _$FilmRootCopyWithImpl<$Res, FilmRoot>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'Search') List<Search>? search,
+      {@JsonKey(name: 'Search') List<Film>? search,
       String? totalResults,
       @JsonKey(name: 'Response') String? response});
 }
@@ -64,7 +64,7 @@ class _$FilmRootCopyWithImpl<$Res, $Val extends FilmRoot>
       search: freezed == search
           ? _value.search
           : search // ignore: cast_nullable_to_non_nullable
-              as List<Search>?,
+              as List<Film>?,
       totalResults: freezed == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
@@ -85,7 +85,7 @@ abstract class _$$_FilmRootCopyWith<$Res> implements $FilmRootCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'Search') List<Search>? search,
+      {@JsonKey(name: 'Search') List<Film>? search,
       String? totalResults,
       @JsonKey(name: 'Response') String? response});
 }
@@ -109,7 +109,7 @@ class __$$_FilmRootCopyWithImpl<$Res>
       search: freezed == search
           ? _value._search
           : search // ignore: cast_nullable_to_non_nullable
-              as List<Search>?,
+              as List<Film>?,
       totalResults: freezed == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
@@ -126,7 +126,7 @@ class __$$_FilmRootCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FilmRoot implements _FilmRoot {
   _$_FilmRoot(
-      {@JsonKey(name: 'Search') final List<Search>? search,
+      {@JsonKey(name: 'Search') final List<Film>? search,
       this.totalResults,
       @JsonKey(name: 'Response') this.response})
       : _search = search;
@@ -134,10 +134,10 @@ class _$_FilmRoot implements _FilmRoot {
   factory _$_FilmRoot.fromJson(Map<String, dynamic> json) =>
       _$$_FilmRootFromJson(json);
 
-  final List<Search>? _search;
+  final List<Film>? _search;
   @override
   @JsonKey(name: 'Search')
-  List<Search>? get search {
+  List<Film>? get search {
     final value = _search;
     if (value == null) return null;
     if (_search is EqualUnmodifiableListView) return _search;
@@ -189,7 +189,7 @@ class _$_FilmRoot implements _FilmRoot {
 
 abstract class _FilmRoot implements FilmRoot {
   factory _FilmRoot(
-      {@JsonKey(name: 'Search') final List<Search>? search,
+      {@JsonKey(name: 'Search') final List<Film>? search,
       final String? totalResults,
       @JsonKey(name: 'Response') final String? response}) = _$_FilmRoot;
 
@@ -197,7 +197,7 @@ abstract class _FilmRoot implements FilmRoot {
 
   @override
   @JsonKey(name: 'Search')
-  List<Search>? get search;
+  List<Film>? get search;
   @override
   String? get totalResults;
   @override

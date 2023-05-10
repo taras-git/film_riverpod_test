@@ -1,42 +1,41 @@
 import 'package:film_riverpod_test/model/film_details/film_details.dart';
-import 'package:film_riverpod_test/model/search.dart';
+import 'package:film_riverpod_test/model/films/film.dart';
 import 'package:film_riverpod_test/services/film_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'film_provider.freezed.dart';
 
-final moviesProvider =
-    StateNotifierProvider<MovieNotifier, MovieState>((ref) => MovieNotifier());
+final filmsProvider =
+    StateNotifierProvider<FilmNotifier, FilmState>((ref) => FilmNotifier());
 
 @freezed
-abstract class MovieState with _$MovieState {
-  const factory MovieState({
-    @Default([]) List<Search> films,
-    @Default(null) FilmDetails filmDetails,
+class FilmState with _$FilmState {
+  const factory FilmState({
+    @Default([]) List<Film> films,
+    @Default(null) FilmDetails? filmDetails,
     @Default(true) bool isLoading,
-  }) = _MovieState;
+  }) = _FilmState;
 
-  const MovieState._();
+  const FilmState._();
 }
 
-class MovieNotifier extends StateNotifier<MovieState> {
+class FilmNotifier extends StateNotifier<FilmState> {
   // ignore: prefer_const_constructors
-  MovieNotifier() : super(MovieState()) {
-    loadFilms();
+  FilmNotifier() : super(FilmState()) {
+    loadFilms('casablanca');
   }
 
-  Future<void> loadFilms() async {
+  Future<void> loadFilms(String title) async {
     state = state.copyWith(isLoading: true);
-    final filmRoot = await FilmService().searchFilmsByTitle();
-    final films = filmRoot.map((film) => Search.fromJson(film)).toList();
+    final films = await FilmService().searchFilmsByTitle(title) as List<Film>;
+
     state = state.copyWith(films: films, isLoading: false);
   }
 
-  Future<void> loadMovie(String id) async {
-    state = state.copyWith(isLoading: true);
-    final film = await FilmService().searchFilmById(id);
-    final filmDetails = FilmDetails.fromJson(film);
-    state = state.copyWith(filmDetails: filmDetails, isLoading: false);
+  Future<FilmDetails> loadFilmDetalis(String id) async {
+    final filmDetails = await FilmService().searchFilmById(id) as FilmDetails;
+
+    return filmDetails;
   }
 }

@@ -8,7 +8,7 @@ part of 'film_root.dart';
 
 _$_FilmRoot _$$_FilmRootFromJson(Map<String, dynamic> json) => _$_FilmRoot(
       search: (json['Search'] as List<dynamic>?)
-          ?.map((e) => Search.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Film.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalResults: json['totalResults'] as String?,
       response: json['Response'] as String?,

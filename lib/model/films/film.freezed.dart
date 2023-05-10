@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'search.dart';
+part of 'film.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Search _$SearchFromJson(Map<String, dynamic> json) {
-  return _Search.fromJson(json);
+Film _$FilmFromJson(Map<String, dynamic> json) {
+  return _Film.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Search {
+mixin _$Film {
   @JsonKey(name: 'Title')
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'Year')
@@ -33,13 +33,13 @@ mixin _$Search {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SearchCopyWith<Search> get copyWith => throw _privateConstructorUsedError;
+  $FilmCopyWith<Film> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchCopyWith<$Res> {
-  factory $SearchCopyWith(Search value, $Res Function(Search) then) =
-      _$SearchCopyWithImpl<$Res, Search>;
+abstract class $FilmCopyWith<$Res> {
+  factory $FilmCopyWith(Film value, $Res Function(Film) then) =
+      _$FilmCopyWithImpl<$Res, Film>;
   @useResult
   $Res call(
       {@JsonKey(name: 'Title') String? title,
@@ -50,9 +50,9 @@ abstract class $SearchCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SearchCopyWithImpl<$Res, $Val extends Search>
-    implements $SearchCopyWith<$Res> {
-  _$SearchCopyWithImpl(this._value, this._then);
+class _$FilmCopyWithImpl<$Res, $Val extends Film>
+    implements $FilmCopyWith<$Res> {
+  _$FilmCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -94,9 +94,9 @@ class _$SearchCopyWithImpl<$Res, $Val extends Search>
 }
 
 /// @nodoc
-abstract class _$$_SearchCopyWith<$Res> implements $SearchCopyWith<$Res> {
-  factory _$$_SearchCopyWith(_$_Search value, $Res Function(_$_Search) then) =
-      __$$_SearchCopyWithImpl<$Res>;
+abstract class _$$_FilmCopyWith<$Res> implements $FilmCopyWith<$Res> {
+  factory _$$_FilmCopyWith(_$_Film value, $Res Function(_$_Film) then) =
+      __$$_FilmCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,10 +108,9 @@ abstract class _$$_SearchCopyWith<$Res> implements $SearchCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SearchCopyWithImpl<$Res>
-    extends _$SearchCopyWithImpl<$Res, _$_Search>
-    implements _$$_SearchCopyWith<$Res> {
-  __$$_SearchCopyWithImpl(_$_Search _value, $Res Function(_$_Search) _then)
+class __$$_FilmCopyWithImpl<$Res> extends _$FilmCopyWithImpl<$Res, _$_Film>
+    implements _$$_FilmCopyWith<$Res> {
+  __$$_FilmCopyWithImpl(_$_Film _value, $Res Function(_$_Film) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +122,7 @@ class __$$_SearchCopyWithImpl<$Res>
     Object? type = freezed,
     Object? poster = freezed,
   }) {
-    return _then(_$_Search(
+    return _then(_$_Film(
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -150,16 +149,15 @@ class __$$_SearchCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Search implements _Search {
-  _$_Search(
+class _$_Film implements _Film {
+  _$_Film(
       {@JsonKey(name: 'Title') this.title,
       @JsonKey(name: 'Year') this.year,
       @JsonKey(name: 'imdbID') this.imdbId,
       @JsonKey(name: 'Type') this.type,
       @JsonKey(name: 'Poster') this.poster});
 
-  factory _$_Search.fromJson(Map<String, dynamic> json) =>
-      _$$_SearchFromJson(json);
+  factory _$_Film.fromJson(Map<String, dynamic> json) => _$$_FilmFromJson(json);
 
   @override
   @JsonKey(name: 'Title')
@@ -179,14 +177,14 @@ class _$_Search implements _Search {
 
   @override
   String toString() {
-    return 'Search(title: $title, year: $year, imdbId: $imdbId, type: $type, poster: $poster)';
+    return 'Film(title: $title, year: $year, imdbId: $imdbId, type: $type, poster: $poster)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Search &&
+            other is _$_Film &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.year, year) || other.year == year) &&
             (identical(other.imdbId, imdbId) || other.imdbId == imdbId) &&
@@ -202,26 +200,26 @@ class _$_Search implements _Search {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SearchCopyWith<_$_Search> get copyWith =>
-      __$$_SearchCopyWithImpl<_$_Search>(this, _$identity);
+  _$$_FilmCopyWith<_$_Film> get copyWith =>
+      __$$_FilmCopyWithImpl<_$_Film>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SearchToJson(
+    return _$$_FilmToJson(
       this,
     );
   }
 }
 
-abstract class _Search implements Search {
-  factory _Search(
+abstract class _Film implements Film {
+  factory _Film(
       {@JsonKey(name: 'Title') final String? title,
       @JsonKey(name: 'Year') final String? year,
       @JsonKey(name: 'imdbID') final String? imdbId,
       @JsonKey(name: 'Type') final String? type,
-      @JsonKey(name: 'Poster') final String? poster}) = _$_Search;
+      @JsonKey(name: 'Poster') final String? poster}) = _$_Film;
 
-  factory _Search.fromJson(Map<String, dynamic> json) = _$_Search.fromJson;
+  factory _Film.fromJson(Map<String, dynamic> json) = _$_Film.fromJson;
 
   @override
   @JsonKey(name: 'Title')
@@ -240,6 +238,5 @@ abstract class _Search implements Search {
   String? get poster;
   @override
   @JsonKey(ignore: true)
-  _$$_SearchCopyWith<_$_Search> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_FilmCopyWith<_$_Film> get copyWith => throw _privateConstructorUsedError;
 }

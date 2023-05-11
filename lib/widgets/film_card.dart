@@ -34,7 +34,17 @@ class FilmCard extends ConsumerWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Image.network(film.poster.toString()),
+                  child: Image.network(
+                    film.poster.toString(),
+                    errorBuilder: (context, exception, stackTrace) {
+                      return const Center(
+                        child: Icon(
+                          Icons.dangerous_outlined,
+                          size: 50,
+                        ),
+                      );
+                    },
+                  ),
                 ),
                 Expanded(
                   child: Padding(

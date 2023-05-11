@@ -19,6 +19,7 @@ mixin _$FilmState {
   List<Film> get films => throw _privateConstructorUsedError;
   FilmDetails? get filmDetails => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilmStateCopyWith<FilmState> get copyWith =>
@@ -30,7 +31,11 @@ abstract class $FilmStateCopyWith<$Res> {
   factory $FilmStateCopyWith(FilmState value, $Res Function(FilmState) then) =
       _$FilmStateCopyWithImpl<$Res, FilmState>;
   @useResult
-  $Res call({List<Film> films, FilmDetails? filmDetails, bool isLoading});
+  $Res call(
+      {List<Film> films,
+      FilmDetails? filmDetails,
+      bool isLoading,
+      String errorMessage});
 
   $FilmDetailsCopyWith<$Res>? get filmDetails;
 }
@@ -51,6 +56,7 @@ class _$FilmStateCopyWithImpl<$Res, $Val extends FilmState>
     Object? films = null,
     Object? filmDetails = freezed,
     Object? isLoading = null,
+    Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
       films: null == films
@@ -65,6 +71,10 @@ class _$FilmStateCopyWithImpl<$Res, $Val extends FilmState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -88,7 +98,11 @@ abstract class _$$_FilmStateCopyWith<$Res> implements $FilmStateCopyWith<$Res> {
       __$$_FilmStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Film> films, FilmDetails? filmDetails, bool isLoading});
+  $Res call(
+      {List<Film> films,
+      FilmDetails? filmDetails,
+      bool isLoading,
+      String errorMessage});
 
   @override
   $FilmDetailsCopyWith<$Res>? get filmDetails;
@@ -108,6 +122,7 @@ class __$$_FilmStateCopyWithImpl<$Res>
     Object? films = null,
     Object? filmDetails = freezed,
     Object? isLoading = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$_FilmState(
       films: null == films
@@ -122,6 +137,10 @@ class __$$_FilmStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -132,7 +151,8 @@ class _$_FilmState extends _FilmState {
   const _$_FilmState(
       {final List<Film> films = const [],
       this.filmDetails = null,
-      this.isLoading = true})
+      this.isLoading = true,
+      this.errorMessage = ''})
       : _films = films,
         super._();
 
@@ -151,10 +171,13 @@ class _$_FilmState extends _FilmState {
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'FilmState(films: $films, filmDetails: $filmDetails, isLoading: $isLoading)';
+    return 'FilmState(films: $films, filmDetails: $filmDetails, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -166,12 +189,18 @@ class _$_FilmState extends _FilmState {
             (identical(other.filmDetails, filmDetails) ||
                 other.filmDetails == filmDetails) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_films), filmDetails, isLoading);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_films),
+      filmDetails,
+      isLoading,
+      errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +213,8 @@ abstract class _FilmState extends FilmState {
   const factory _FilmState(
       {final List<Film> films,
       final FilmDetails? filmDetails,
-      final bool isLoading}) = _$_FilmState;
+      final bool isLoading,
+      final String errorMessage}) = _$_FilmState;
   const _FilmState._() : super._();
 
   @override
@@ -193,6 +223,8 @@ abstract class _FilmState extends FilmState {
   FilmDetails? get filmDetails;
   @override
   bool get isLoading;
+  @override
+  String get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$_FilmStateCopyWith<_$_FilmState> get copyWith =>

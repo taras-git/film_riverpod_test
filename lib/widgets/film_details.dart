@@ -33,7 +33,17 @@ class DetailsOfFilm extends ConsumerWidget {
               final film = snapshot.data!;
 
               children = <Widget>[
-                Image.network(film.poster.toString()),
+                Image.network(
+                  film.poster.toString(),
+                  errorBuilder: (context, exception, stackTrace) {
+                    return const Center(
+                      child: Icon(
+                        Icons.dangerous_outlined,
+                        size: 50,
+                      ),
+                    );
+                  },
+                ),
                 const SizedBox(height: 20),
                 Text("${film.title} (${film.year})",
                     style: const TextStyle(
@@ -69,9 +79,11 @@ class DetailsOfFilm extends ConsumerWidget {
               ];
             }
             return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: children,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: children,
+                ),
               ),
             );
           },

@@ -15,6 +15,7 @@ class FilmState with _$FilmState {
     @Default([]) List<Film> films,
     @Default(null) FilmDetails? filmDetails,
     @Default(true) bool isLoading,
+    @Default('') String errorMessage,
   }) = _FilmState;
 
   const FilmState._();
@@ -23,14 +24,38 @@ class FilmState with _$FilmState {
 class FilmNotifier extends StateNotifier<FilmState> {
   // ignore: prefer_const_constructors
   FilmNotifier() : super(FilmState()) {
-    loadFilms('casablanca');
+    initialState();
+  }
+
+  void initialState() {
+    state = state.copyWith(isLoading: false);
   }
 
   Future<void> loadFilms(String title) async {
     state = state.copyWith(isLoading: true);
-    final films = await FilmService().searchFilmsByTitle(title) as List<Film>;
-
-    state = state.copyWith(films: films, isLoading: false);
+    final response = await FilmService().searchFilmsByTitle(title);
+    if (response == null) {
+      state = state.copyWith(
+        films: [],
+        isLoading: false,
+        errorMessage: "Nothing found...",
+      );
+      return;
+    }
+    try {
+      final films = response as List<Film>;
+      state = state.copyWith(
+        films: films,
+        isLoading: false,
+        errorMessage: "",
+      );
+    } on Exception catch (e) {
+      state = state.copyWith(
+        films: [],
+        isLoading: false,
+        errorMessage: "Somthing wrong with the response",
+      );
+    }
   }
 
   Future<FilmDetails> loadFilmDetalis(String id) async {

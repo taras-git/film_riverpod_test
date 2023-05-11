@@ -10,6 +10,7 @@ class FilmsList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final films = ref.watch(filmsProvider).films;
     final isLoading = ref.watch(filmsProvider).isLoading;
+    final errorMessage = ref.watch(filmsProvider).errorMessage;
 
     return Scaffold(
       body: SafeArea(
@@ -18,16 +19,23 @@ class FilmsList extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
               child: TextField(
+                autocorrect: false,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Film Title:',
+                  hintText: 'Film Title: (min: 3 letters)',
                 ),
-                onChanged: (title) async {
-                  await ref.read(filmsProvider.notifier).loadFilms(title);
+                onSubmitted: (title) async {
+                  if (title.length > 2) {
+                    await ref.read(filmsProvider.notifier).loadFilms(title);
+                  }
                 },
               ),
             ),
-            if (isLoading)
+            if (errorMessage.isNotEmpty)
+              const Text('Nothing found, please try again')
+            else if (!isLoading && films.isEmpty)
+              const Text('Please enter a film title')
+            else if (isLoading)
               const CircularProgressIndicator()
             else
               Expanded(

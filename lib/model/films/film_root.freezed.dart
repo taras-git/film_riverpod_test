@@ -20,9 +20,11 @@ FilmRoot _$FilmRootFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FilmRoot {
+  @HiveField(0)
   @JsonKey(name: 'Search')
   List<Film>? get search => throw _privateConstructorUsedError;
   String? get totalResults => throw _privateConstructorUsedError;
+  @HiveField(1)
   @JsonKey(name: 'Response')
   String? get response => throw _privateConstructorUsedError;
 
@@ -38,9 +40,9 @@ abstract class $FilmRootCopyWith<$Res> {
       _$FilmRootCopyWithImpl<$Res, FilmRoot>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'Search') List<Film>? search,
+      {@HiveField(0) @JsonKey(name: 'Search') List<Film>? search,
       String? totalResults,
-      @JsonKey(name: 'Response') String? response});
+      @HiveField(1) @JsonKey(name: 'Response') String? response});
 }
 
 /// @nodoc
@@ -85,9 +87,9 @@ abstract class _$$_FilmRootCopyWith<$Res> implements $FilmRootCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'Search') List<Film>? search,
+      {@HiveField(0) @JsonKey(name: 'Search') List<Film>? search,
       String? totalResults,
-      @JsonKey(name: 'Response') String? response});
+      @HiveField(1) @JsonKey(name: 'Response') String? response});
 }
 
 /// @nodoc
@@ -124,11 +126,12 @@ class __$$_FilmRootCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 0, adapterName: 'FilmRootAdapter')
 class _$_FilmRoot implements _FilmRoot {
   _$_FilmRoot(
-      {@JsonKey(name: 'Search') final List<Film>? search,
+      {@HiveField(0) @JsonKey(name: 'Search') final List<Film>? search,
       this.totalResults,
-      @JsonKey(name: 'Response') this.response})
+      @HiveField(1) @JsonKey(name: 'Response') this.response})
       : _search = search;
 
   factory _$_FilmRoot.fromJson(Map<String, dynamic> json) =>
@@ -136,6 +139,7 @@ class _$_FilmRoot implements _FilmRoot {
 
   final List<Film>? _search;
   @override
+  @HiveField(0)
   @JsonKey(name: 'Search')
   List<Film>? get search {
     final value = _search;
@@ -148,6 +152,7 @@ class _$_FilmRoot implements _FilmRoot {
   @override
   final String? totalResults;
   @override
+  @HiveField(1)
   @JsonKey(name: 'Response')
   final String? response;
 
@@ -189,18 +194,21 @@ class _$_FilmRoot implements _FilmRoot {
 
 abstract class _FilmRoot implements FilmRoot {
   factory _FilmRoot(
-      {@JsonKey(name: 'Search') final List<Film>? search,
-      final String? totalResults,
-      @JsonKey(name: 'Response') final String? response}) = _$_FilmRoot;
+          {@HiveField(0) @JsonKey(name: 'Search') final List<Film>? search,
+          final String? totalResults,
+          @HiveField(1) @JsonKey(name: 'Response') final String? response}) =
+      _$_FilmRoot;
 
   factory _FilmRoot.fromJson(Map<String, dynamic> json) = _$_FilmRoot.fromJson;
 
   @override
+  @HiveField(0)
   @JsonKey(name: 'Search')
   List<Film>? get search;
   @override
   String? get totalResults;
   @override
+  @HiveField(1)
   @JsonKey(name: 'Response')
   String? get response;
   @override

@@ -1,10 +1,16 @@
+import 'package:film_riverpod_test/model/films/film.dart';
 import 'package:film_riverpod_test/widgets/film_details.dart';
 import 'package:film_riverpod_test/widgets/film_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(FilmAdapter());
+
   runApp(
     ProviderScope(
       child: FilmApp(),

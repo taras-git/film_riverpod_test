@@ -20,14 +20,19 @@ Film _$FilmFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Film {
+  @HiveField(0)
   @JsonKey(name: 'Title')
   String? get title => throw _privateConstructorUsedError;
+  @HiveField(1)
   @JsonKey(name: 'Year')
   String? get year => throw _privateConstructorUsedError;
+  @HiveField(2)
   @JsonKey(name: 'imdbID')
   String? get imdbId => throw _privateConstructorUsedError;
+  @HiveField(3)
   @JsonKey(name: 'Type')
   String? get type => throw _privateConstructorUsedError;
+  @HiveField(4)
   @JsonKey(name: 'Poster')
   String? get poster => throw _privateConstructorUsedError;
 
@@ -42,11 +47,11 @@ abstract class $FilmCopyWith<$Res> {
       _$FilmCopyWithImpl<$Res, Film>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'Title') String? title,
-      @JsonKey(name: 'Year') String? year,
-      @JsonKey(name: 'imdbID') String? imdbId,
-      @JsonKey(name: 'Type') String? type,
-      @JsonKey(name: 'Poster') String? poster});
+      {@HiveField(0) @JsonKey(name: 'Title') String? title,
+      @HiveField(1) @JsonKey(name: 'Year') String? year,
+      @HiveField(2) @JsonKey(name: 'imdbID') String? imdbId,
+      @HiveField(3) @JsonKey(name: 'Type') String? type,
+      @HiveField(4) @JsonKey(name: 'Poster') String? poster});
 }
 
 /// @nodoc
@@ -100,11 +105,11 @@ abstract class _$$_FilmCopyWith<$Res> implements $FilmCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'Title') String? title,
-      @JsonKey(name: 'Year') String? year,
-      @JsonKey(name: 'imdbID') String? imdbId,
-      @JsonKey(name: 'Type') String? type,
-      @JsonKey(name: 'Poster') String? poster});
+      {@HiveField(0) @JsonKey(name: 'Title') String? title,
+      @HiveField(1) @JsonKey(name: 'Year') String? year,
+      @HiveField(2) @JsonKey(name: 'imdbID') String? imdbId,
+      @HiveField(3) @JsonKey(name: 'Type') String? type,
+      @HiveField(4) @JsonKey(name: 'Poster') String? poster});
 }
 
 /// @nodoc
@@ -149,29 +154,35 @@ class __$$_FilmCopyWithImpl<$Res> extends _$FilmCopyWithImpl<$Res, _$_Film>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 1, adapterName: 'FilmAdapter')
 class _$_Film implements _Film {
   _$_Film(
-      {@JsonKey(name: 'Title') this.title,
-      @JsonKey(name: 'Year') this.year,
-      @JsonKey(name: 'imdbID') this.imdbId,
-      @JsonKey(name: 'Type') this.type,
-      @JsonKey(name: 'Poster') this.poster});
+      {@HiveField(0) @JsonKey(name: 'Title') this.title,
+      @HiveField(1) @JsonKey(name: 'Year') this.year,
+      @HiveField(2) @JsonKey(name: 'imdbID') this.imdbId,
+      @HiveField(3) @JsonKey(name: 'Type') this.type,
+      @HiveField(4) @JsonKey(name: 'Poster') this.poster});
 
   factory _$_Film.fromJson(Map<String, dynamic> json) => _$$_FilmFromJson(json);
 
   @override
+  @HiveField(0)
   @JsonKey(name: 'Title')
   final String? title;
   @override
+  @HiveField(1)
   @JsonKey(name: 'Year')
   final String? year;
   @override
+  @HiveField(2)
   @JsonKey(name: 'imdbID')
   final String? imdbId;
   @override
+  @HiveField(3)
   @JsonKey(name: 'Type')
   final String? type;
   @override
+  @HiveField(4)
   @JsonKey(name: 'Poster')
   final String? poster;
 
@@ -213,27 +224,32 @@ class _$_Film implements _Film {
 
 abstract class _Film implements Film {
   factory _Film(
-      {@JsonKey(name: 'Title') final String? title,
-      @JsonKey(name: 'Year') final String? year,
-      @JsonKey(name: 'imdbID') final String? imdbId,
-      @JsonKey(name: 'Type') final String? type,
-      @JsonKey(name: 'Poster') final String? poster}) = _$_Film;
+      {@HiveField(0) @JsonKey(name: 'Title') final String? title,
+      @HiveField(1) @JsonKey(name: 'Year') final String? year,
+      @HiveField(2) @JsonKey(name: 'imdbID') final String? imdbId,
+      @HiveField(3) @JsonKey(name: 'Type') final String? type,
+      @HiveField(4) @JsonKey(name: 'Poster') final String? poster}) = _$_Film;
 
   factory _Film.fromJson(Map<String, dynamic> json) = _$_Film.fromJson;
 
   @override
+  @HiveField(0)
   @JsonKey(name: 'Title')
   String? get title;
   @override
+  @HiveField(1)
   @JsonKey(name: 'Year')
   String? get year;
   @override
+  @HiveField(2)
   @JsonKey(name: 'imdbID')
   String? get imdbId;
   @override
+  @HiveField(3)
   @JsonKey(name: 'Type')
   String? get type;
   @override
+  @HiveField(4)
   @JsonKey(name: 'Poster')
   String? get poster;
   @override

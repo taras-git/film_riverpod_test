@@ -32,7 +32,7 @@ class FilmsList extends ConsumerWidget {
               ),
             ),
             if (errorMessage.isNotEmpty)
-              const Text('Nothing found, please try again')
+              Text('Nothing found, please try again.\n $errorMessage')
             else if (!isLoading && films.isEmpty)
               const Text('Please enter a film title')
             else if (isLoading)

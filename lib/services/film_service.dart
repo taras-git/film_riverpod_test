@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:film_riverpod_test/model/film_details/film_details.dart';
 import 'package:film_riverpod_test/model/films/film_root.dart';
+import 'package:flutter/material.dart';
 
 class FilmService {
   static const path = '/?apikey=8df6e079';
@@ -13,12 +14,24 @@ class FilmService {
   );
 
   Future<dynamic> searchFilmsByTitle(String title) async {
-    final response = await _dio.get(
-      path,
-      queryParameters: {'s': title},
-    );
-    final films = FilmRoot.fromJson(response.data);
-    return films.search;
+    Response? response;
+    try {
+      response = await _dio.get(
+        path,
+        queryParameters: {'s': title},
+      );
+    } on DioError catch (e) {
+      debugPrint(e.toString());
+      return e.toString();
+    }
+
+    try {
+      final films = FilmRoot.fromJson(response.data);
+      return films.search;
+    } on Exception catch (e) {
+      debugPrint(e.toString());
+      return e.toString();
+    }
   }
 
   Future<dynamic> searchFilmById(String id) async {

@@ -26,9 +26,9 @@ class FilmApp extends ConsumerWidget {
     final theme = ThemeData();
 
     return MaterialApp.router(
-      routeInformationProvider: _router.routeInformationProvider,
-      routeInformationParser: _router.routeInformationParser,
-      routerDelegate: _router.routerDelegate,
+      routeInformationProvider: router.routeInformationProvider,
+      routeInformationParser: router.routeInformationParser,
+      routerDelegate: router.routerDelegate,
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
           primary: Colors.black,
@@ -39,7 +39,7 @@ class FilmApp extends ConsumerWidget {
     );
   }
 
-  final GoRouter _router = GoRouter(
+  final GoRouter router = GoRouter(
     routes: <GoRoute>[
       GoRoute(
         path: '/',
